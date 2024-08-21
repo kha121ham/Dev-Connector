@@ -38,7 +38,7 @@ const Profile = ({ getProfileById,profile:{ profile, loading },auth }) => {
           <h2 className="text-primary">Education</h2>
           {profile.education.length >0 ? (<Fragment>
             {profile.education.map(education=>(
-              <ProfileEducation key={education._id} expereince={education} />
+              <ProfileEducation key={education._id} education={education} />
             ))}
           </Fragment>) : (<h4>No Education</h4>) }
          </div>

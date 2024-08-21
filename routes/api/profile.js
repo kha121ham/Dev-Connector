@@ -92,7 +92,7 @@ if(profile) {
 }
 //Create
 profile=new Profile(ProfileField);
-profile.save();
+await profile.save();
 res.json(profile);
 
 } catch (err) {

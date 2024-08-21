@@ -41,13 +41,13 @@ router.post(
       let user = await User.findOne({ email });
       //See if user not exist
       if (!user) {
-        return res.status(400).json({ msg: "Invalid Credentials" });
+        return res.status(400).json({  msg:'Invalid email or password' });
       }
 
      //compare between password user enter and password user in database
     const isMatch =await bcrypt.compare(password,user.password);
     if(!isMatch){
-        return res.status(400).json({ msg: "Invalid Credentials" });
+      return res.status(400).json({ msg:'Invalid email or password'});
     }
       //Return jsonwebtoken
       const payload = {

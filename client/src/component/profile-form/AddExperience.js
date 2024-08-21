@@ -1,9 +1,10 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addExperience } from '../../actions/profile';
+import { getCurrentProfile } from '../../actions/profile';
 
-const AddExperience = ({ addExperience }) => {
+const AddExperience = ({ addExperience, profile: { loading , profile }, getCurrentProfile }) => {
 const [formData, setFormData] = useState({
     company:'',
     title:'',
@@ -15,6 +16,18 @@ const [formData, setFormData] = useState({
 }) ;
 const [toDateDisabled, toggleDisabled] = useState(false);
 const { company, title, location, from, to, current, description } = formData;
+useEffect(()=>{
+  getCurrentProfile();
+  setFormData({
+    company:loading || !profile.experience.company ? '' : profile.experience.company,
+    title:loading || !profile.experience.title ? '' : profile.experience.title,
+    location:loading || !profile.experience.location ? '' : profile.experience.location,
+    from:loading || !profile.experience.from ? '' : profile.experience.from,
+    to:loading || !profile.experience.to ? '' : profile.experience.to,
+    current:loading || !profile.experience.current ? '' : profile.experience.current,
+    description:loading || !profile.experience.description ? '' : profile.experience.description,
+})
+},[getCurrentProfile])
 const onChange= e => setFormData({ ...formData,[e.target.name]:e.target.value })
   return (
     <Fragment>
@@ -72,7 +85,12 @@ const onChange= e => setFormData({ ...formData,[e.target.name]:e.target.value })
 }
 
 AddExperience.propTypes = {
-  addExperience:PropTypes.func.isRequired
+  addExperience:PropTypes.func.isRequired,
+  getCurrentProfile:PropTypes.func.isRequired
 }
 
-export default connect(null, { addExperience }) (AddExperience);
+const mapStateToProps = state =>({
+  profile:state.profile
+})
+
+export default connect(mapStateToProps, { addExperience, getCurrentProfile }) (AddExperience);

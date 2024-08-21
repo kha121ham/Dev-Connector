@@ -39,7 +39,7 @@ useEffect(()=>{
     getCurrentProfile();
     setFormData({
         company:loading || !profile.company ? '' : profile.company,
-        webSite:loading || !profile.webSite ? '' : profile.webSite,
+        website:loading || !profile.website ? '' : profile.website,
         location:loading || !profile.location ? '' : profile.location,
         status:loading || !profile.status ? '' : profile.status,
         skills:loading || !profile.skills ? '' : profile.skills,
@@ -52,7 +52,7 @@ useEffect(()=>{
         instagram:loading || !profile.social ? '' : profile.social.instagram,
     });
 },[loading,getCurrentProfile]);
-    const onChange = e => setFormData({...formData, [e.target.name]:e.target.value});
+const onChange= e => setFormData({ ...formData,[e.target.name]:e.target.value })
     const onSubmit = e => {
       e.preventDefault();
       createProfile(formData,true);

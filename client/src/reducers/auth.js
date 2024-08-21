@@ -32,21 +32,21 @@ export default function (state = initialState ,action) {
             return {
                 ...state,
                 ...payload,
-                isAuthenticated:true,
-                loading:false
-            };
+                isAuthenticated: true,
+                loading: false
+              };
         case LOGIN_FAIL:
         case AUTH_ERROR:
         case REGISTER_FAIL:
         case LOGOUT:
         case ACCOUNT_DELETED:
             localStorage.removeItem('token');
-            return  {
+            return {
                 ...state,
-                token:null,
-                isAuthenticated:false,
-                loading:false
-            };
+                token: null,
+                isAuthenticated: false,
+                loading: false
+              };
         default:
             return state;
     }
