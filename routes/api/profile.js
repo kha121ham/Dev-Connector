@@ -67,7 +67,13 @@ if(bio) ProfileField.bio = bio;
 if(status) ProfileField.status = status;
 if(githubusername) ProfileField.githubusername = githubusername;
 if(skills) {
-    ProfileField.skills=skills.split(',').map(skill=>skill.trim());
+    if (typeof skills === 'string') {
+        ProfileField.skills = skills.split(',').map(skill => skill.trim());
+      } else {
+        // Handle the case where skills is not a string
+        // You might want to throw an error or initialize it as an empty array
+        ProfileField.skills = [];
+      }
 }
 //Build socail object
 ProfileField.social={};

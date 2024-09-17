@@ -12,7 +12,8 @@ const initialState = {
     token:localStorage.getItem('token'),
     isAuthenticated:null,
     loading:true,
-    user:null
+    user:null,
+    error:{}
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -45,7 +46,8 @@ export default function (state = initialState ,action) {
                 ...state,
                 token: null,
                 isAuthenticated: false,
-                loading: false
+                loading: false,
+                error:payload
               };
         default:
             return state;

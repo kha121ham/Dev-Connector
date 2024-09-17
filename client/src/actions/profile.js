@@ -106,7 +106,6 @@ try {
 };
 
 //Add Experience
-
 export const addExperience = (formData) => async dispatch =>{
     try {
         const config = {
@@ -135,7 +134,6 @@ export const addExperience = (formData) => async dispatch =>{
 }
 
 //Add Education
-
 export const addEducation = (formData) => async dispatch =>{
     try {
         const config = {
