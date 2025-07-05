@@ -13,7 +13,7 @@ if(!token) {
 
     //verify token
 try {
-    const decoded =jwt.verify(token,process.env.jwtSecret);
+    const decoded =jwt.verify(token,process.env.JWT_SECRET);
     req.user = decoded.user;
     next();
     } 
