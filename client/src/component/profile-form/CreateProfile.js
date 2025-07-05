@@ -33,7 +33,7 @@ const CreateProfile = ({ createProfile,}) => {
         youtube,
         instagram,
     } =formData;
-
+    
     const onChange = e => setFormData({...formData, [e.target.name]:e.target.value});
     const onSubmit = e => {
       e.preventDefault();
@@ -89,18 +89,6 @@ const CreateProfile = ({ createProfile,}) => {
           <small className="form-text"
             >Please use comma separated values (eg.
             HTML,CSS,JavaScript,PHP)</small
-          >
-        </div>
-        <div class="form-group">
-          <input
-            type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername} onChange={e=>onChange(e)}
-          />
-          <small class="form-text"
-            >If you want your latest repos and a Github link, include your
-            username</small
           >
         </div>
         <div className="form-group">

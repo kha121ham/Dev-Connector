@@ -109,18 +109,6 @@ const onChange= e => setFormData({ ...formData,[e.target.name]:e.target.value })
             HTML,CSS,JavaScript,PHP)</small
           >
         </div>
-        <div class="form-group">
-          <input
-            type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername} onChange={e=>onChange(e)}
-          />
-          <small class="form-text"
-            >If you want your latest repos and a Github link, include your
-            username</small
-          >
-        </div>
         <div className="form-group">
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e=>onChange(e)}></textarea>
           <small className="form-text">Tell us a little about yourself</small>

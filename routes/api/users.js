@@ -6,6 +6,8 @@ const config = require('config');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 //@rout    Post api/users
 //@desc    Register user
@@ -63,7 +65,7 @@ router.post(
     };
 
     //*2 Create JWT
-    jwt.sign(payload,config.get('jwtSecret'),{expiresIn:360000},(err,token)=>{
+    jwt.sign(payload,process.env.jwtSecret,{expiresIn:360000},(err,token)=>{
         if(err) throw err;
         res.json({ token })
     });

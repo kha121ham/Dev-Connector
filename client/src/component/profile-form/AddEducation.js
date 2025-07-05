@@ -60,7 +60,7 @@ const onChange= e => setFormData({ ...formData,[e.target.name]:e.target.value })
             name="description"
             cols="30"
             rows="5"
-            placeholder="Job Description"
+            placeholder="Education Description"
             value={description} onChange={e=>onChange(e)}
           ></textarea>
         </div>
